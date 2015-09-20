@@ -138,3 +138,56 @@ p {
 
 If we run our `app.py` file now, everything should work as expected, and you should see a page like this.
 Our HTML page is working and stylized.
+
+## URL Handling
+In Flask, it is very easy to add new endpoints.
+All you have to do is add another route to the `app` variable, and return more data.
+
+```python
+@app.route("/")
+def get_root():
+  return render_template('index.html')
+
+@app.route("/data")
+def get_data():
+  return render_template('other_file.html')
+```
+
+For more advanced HTTP uses, you can also receive requests that are not `GET` requests.
+For example, if you wanted to receive a `POST` request, just add a `methods` parameter to the `route` function.
+
+```python
+@app.route("/data", methods=["POST"])
+def post_data():
+  return "Your data has been received!"
+```
+
+If you are receiving data through a POST request, you are likely going to want to be able to read URL parameters or HTTP headers.
+This can be done easily as well.
+
+To read URL parameters, we're going to need to import another part of the Flask library, the `request` variable.
+
+```python
+from flask import Flask, render_template, url_for, request
+
+# Once you've imported the request variable, you can very easily read URL parameters.
+@app.route("/data", methods=["POST"])
+def post_data():
+  query = request.args.get('q')
+  print "Query: %s" % query
+
+  # If the URL were http://localhost/data?q=myquery, query would be equal to "myquery"
+  # Don't forget that you still need to return data, even if the request is not a GET request.
+
+  return "Your data has been received!"
+```
+
+To read HTTP headers, we can use a similar method, also utilizing the `request` variable.
+
+```python
+@app.route("/data", methods=["POST"])
+def post_data():
+  auth = request.headers.get('Authorization')
+  print auth
+  return "Your data has been received!"
+```
