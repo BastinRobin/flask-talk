@@ -139,6 +139,23 @@ p {
 If we run our `app.py` file now, everything should work as expected, and you should see a page like this.
 Our HTML page is working and stylized.
 
+Serving Python code to your HTML files can serve many other useful purposes as well, especially if you are trying to serve dynamic content across sessions on your website.
+The `render_template` function accepts any key with any value.
+Because of this, as long as your variable yields data that can be displayed in the form of a string, it can be displayed in your HTML file.
+
+```python
+@app.route("/")
+def get_root():
+  stock_price = 75.43
+  return render_template('index.html', data=stock_price)
+```
+
+You would then refer to that data using the name of the key (not the value) in the HTML file.
+
+```html
+<p>The current price of this stock is {{ data }}</p>
+```
+
 ## URL Handling
 In Flask, it is very easy to add new endpoints.
 All you have to do is add another route to the `app` variable, and return more data.

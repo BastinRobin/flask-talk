@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def get_root():
-    return render_template('index.html')
+    stock_price = 75.43
+    return render_template('index.html', data=stock_price)
 
 @app.route("/data")
 def get_data():
