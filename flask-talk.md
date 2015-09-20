@@ -208,3 +208,14 @@ def post_data():
   print auth
   return "Your data has been received!"
 ```
+
+## Learn More
+As you may have expected, this talk only touches the surface of Flask.
+There are many more useful components of the library that you can use when making a website.
+Personally, I think the official Flask documentation is fantastic.
+You can find it [here](http://flask.pocoo.org/docs/).
+
+If you have any issues with your Flask site, you can reach out to me on Twitter [@jackcook36](https://twitter.com/jackcook36) or shoot me an email at [hello@jackcook.nyc](mailto:hello@jackcook.nyc).
+If you had any issues following along with the talk or fell behind at some point, you can check it out at [https://github.com/jackcook/flask-talk](https://github.com/jackcook/flask-talk) to look at my final code or read a typed up version of this talk.
+
+Thanks for watching, and have a good time at Local Hack Day!
