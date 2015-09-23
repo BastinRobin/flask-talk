@@ -5,6 +5,6 @@ This repository contains the talk's manuscript along with the final code I had w
 It is a beginner's talk on using the framework, and contains three major sections.
 * [Installing Flask](https://github.com/jackcook/flask-talk/blob/master/flask-talk.md#installing-flask)
 * [Hello, World!](https://github.com/jackcook/flask-talk/blob/master/flask-talk.md#hello-world)
-* [Dynamic HTML Files](https://github.com/jackcook/flask-talk/blob/master/flask-talk.md#dynamic-html-files)
+* [Templating](https://github.com/jackcook/flask-talk/blob/master/flask-talk.md#templating)
 * [URL Handling](https://github.com/jackcook/flask-talk/blob/master/flask-talk.md#url-handling)
 * [Learn More](https://github.com/jackcook/flask-talk/blob/master/flask-talk.md#learn-more)

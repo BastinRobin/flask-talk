@@ -92,7 +92,7 @@ def get_root():
 If all goes well, you should be able to refresh your page to see "Hello world, from my HTML file!".
 If you see a 500 error in your console or a `jinja2.exceptions.TemplateNotFound` error on your webpage, it is most likely because you mistyped your HTML file name or forgot to put the file in the `templates` folder.
 
-## Dynamic HTML Files
+## Templating
 
 One very useful feature of `jinja2`, the HTML rendering library in Flask, is that you can call Python code straight from your HTML file in order to change content that is displayed on the page.
 One practical use of this is the ability to reference CSS and JavaScript files in your HTML code.
@@ -154,6 +154,38 @@ You would then refer to that data using the name of the key (not the value) in t
 
 ```html
 <p>The current price of this stock is {{ data }}</p>
+```
+
+Sometimes, you might need to prepare for the worst.
+If for whatever reason your code throws an exception or has an issue retrieving that data, then the string that appears in your webpage would be "None", and that's not ideal.
+
+Fortunately, jinja2 allows you to use compound statements, such as `if`, `for`, and `while`.
+We can use an `if` statement here to ensure that the user understands what happens if an error occurred in your code.
+
+```html
+{% if data %}
+  <p>The current price of this stock is {{ data }}</p>
+{% else %}
+  <p>There is no stock price currently available</p>
+{% endif %}
+```
+
+As I just mentioned, we can also use `for` loops in your HTML file.
+If I were to pass an array to my HTML file, I could loop through it and display each element in that array.
+
+```python
+@app.route("/")
+def get_root():
+  stock_price = 75.43
+  frameworks = ["Flask", "Django", "Bottle", "Rails"]
+
+  return render_template('index.html', data=stock_price, frameworks=frameworks)
+```
+
+```html
+{% for framework in frameworks %}
+  <p>{{ framework }} is a web development framework.</p>
+{% endfor %}
 ```
 
 ## URL Handling

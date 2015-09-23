@@ -3,6 +3,14 @@
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
   </head>
   <body>
+  {% if data %}
     <p>The current price of this stock is {{ data }}</p>
+  {% else %}
+    <p>There is no stock data currently available.</p>
+  {% endif %}
+
+  {% for framework in frameworks %}
+    <p>{{ framework}} is a web development framework.</p>
+  {% endfor %}
   </body>
 </html>

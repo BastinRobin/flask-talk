@@ -5,7 +5,9 @@ app = Flask(__name__)
 @app.route("/")
 def get_root():
     stock_price = 75.43
-    return render_template('index.html', data=stock_price)
+    frameworks = ["Flask", "Django", "Bottle", "Rails"]
+
+    return render_template('index.html', data=stock_price, frameworks=frameworks)
 
 @app.route("/data")
 def get_data():
